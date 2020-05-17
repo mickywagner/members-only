@@ -12,11 +12,12 @@ exports.create_user_post= [
     body('firstname', 'First name is required').trim().isLength({min: 1}),
     body('lastname', 'Last name is required').trim().isLength({min: 1}),
     body('email', 'An email is required').isEmail().normalizeEmail().custom(value => {
-            return User.find({email: value}), function(err, user) {
-                if(user) {
-                    throw new Error('Email is already in use')
-                }
-             }}),
+        return User.findOne({email: value}).then(user => {
+            if(user) {
+                return Promise.reject('Email is already in use')
+            }
+        })
+    }),
     body('password', 'Password is required'),
     body('confirmpassword').custom((value, {req}) => {
         if(value !== req.body.password) {
