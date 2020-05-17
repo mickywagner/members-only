@@ -3,6 +3,13 @@ extends layout
 block content
     h1 Sign Up!
 
+    if errors
+        ul
+            for error in errors
+                li!= error.msg
+
+
+
     form(action="" method="POST")
         .form-group
             label(for="firstname") First Name:

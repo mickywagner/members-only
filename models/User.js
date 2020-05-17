@@ -20,4 +20,10 @@ UserSchema
         return this.first_name + this.last_name
     })
 
+UserSchema
+    .virtual('url')
+    .get(() => {
+        return '/users/' + this._id
+    })
+
 module.exports = mongoose.model('User', UserSchema)
