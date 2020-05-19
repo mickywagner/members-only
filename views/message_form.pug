@@ -1,0 +1,13 @@
+extends layout
+
+block content
+    h1 #{title}
+
+    form(action="" method="POST")
+        .form-group
+            label(for="title") Title:
+            input#title.form-control(type="text" name="title" required)
+        .form-group
+            label(for="text") Message Text:
+            textarea#text.form-control(name="text" required rows="10")
+        button.btn.btn-primary(type="submit") Submit
