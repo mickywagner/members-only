@@ -6,8 +6,8 @@ block content
     form(action="" method="POST")
         .form-group
             label(for="title") Title:
-            input#title.form-control(type="text" name="title" required)
+            input#title.form-control(type="text" name="title" required value=(message ? message.title : ''))
         .form-group
             label(for="text") Message Text:
-            textarea#text.form-control(name="text" required rows="10")
+            textarea#text.form-control(name="text" required rows="10" value=(message ? message.text : ''))
         button.btn.btn-primary(type="submit") Submit
