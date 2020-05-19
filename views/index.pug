@@ -2,4 +2,13 @@ extends layout
 
 block content
   h1 Members Only Site
-  p Future stuff...
+  p This page will:
+  ul
+    li Display messages (only members can see author)
+    li Have a button to create new message (logged in users only)
+  
+  a(href='/signup') 
+    button.btn.btn-primary Sign Up
+  a(href='/login') 
+    button.btn.btn-primary Log In
+

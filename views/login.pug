@@ -3,6 +3,9 @@ extends layout
 block content
     h1 Log In!
 
+    if messages
+        li #{messages.error}
+
     form(action="" method="POST")
         .form-group
             label(for="email") Email:

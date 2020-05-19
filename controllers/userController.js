@@ -3,7 +3,6 @@ const { body, validationResult, sanitizeBody } = require('express-validator')
 
 const bcrypt = require('bcryptjs')
 
-// create user
 // update user
 // delete user
 // view all users
