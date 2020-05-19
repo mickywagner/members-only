@@ -15,7 +15,7 @@ const UserSchema = new Schema(
 )
 
 UserSchema
-    .virtual('full name')
+    .virtual('full_name')
     .get(() => {
         return this.first_name + this.last_name
     })
