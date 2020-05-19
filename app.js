@@ -33,6 +33,7 @@ app.use(session( { secret: process.env.SECRET_KEY}))
 app.use(express.urlencoded({ extended: false }));
 app.use(passport.initialize())
 app.use(passport.session())
+app.use(flash())
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 

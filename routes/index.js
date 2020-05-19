@@ -7,6 +7,11 @@ initialize(passport)
 
 const userController = require('../controllers/userController')
 
+router.use(function(req, res, next) {
+  res.locals.currentUser = req.user
+  next()
+})
+
 /* GET home page. */
 router.get('/', (req, res, next) => {
   res.render('index');
@@ -24,7 +29,7 @@ router.get('/login', (req, res, next) => {
 
 router.post('/login', passport.authenticate('local', 
   {
-    successRedirect: '/',
+    successRedirect: '/users',
     failureRedirect: '/login',
     failureFlash: true
   }
