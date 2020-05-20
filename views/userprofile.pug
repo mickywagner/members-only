@@ -3,11 +3,10 @@ extends layout
 block content
     header.user
         h1 Welcome #{currentUser.first_name}!
-        p #{currentUser}
         a(href='/logout') 
             button.btn.btn-info Log Out
     if !currentUser.isAdmin
-        a(href='/') 
+        a(href='/join') 
             button.btn.btn-primary Become a member
 
     a(href='/message/create') 

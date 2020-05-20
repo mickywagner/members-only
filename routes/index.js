@@ -39,4 +39,10 @@ router.get('/logout', (req, res) => {
   res.redirect('/')
 })
 
+router.get('/join', (req, res) => {
+  res.render('membership')
+})
+
+// router.post('/join', userController.update_membership_post)
+
 module.exports = router;

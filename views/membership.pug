@@ -1,0 +1,12 @@
+extends layout 
+
+block content
+    h1 Want to see who is posting what?
+    p All you need to do is join our amazing club.
+    
+    form(action="" method="POST")
+        .form-group
+            label(for="secretcode") Enter the secret code to join:
+            input#secretcode.form-control(type="text" required)
+        input(type="hidden" value=currentUser._id)
+        button.btn.btn-info Join Now!
