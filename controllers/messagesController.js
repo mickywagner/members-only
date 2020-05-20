@@ -53,3 +53,12 @@ exports.message_delete_get = (req, res, next) => {
                res.render('message_delete', {message: message})
            })
 }
+
+exports.message_delete_post = (req, res, next) => {
+    Message.findByIdAndRemove(req.body.id, function deleteMessage(err) {
+        if(err) {return next(err)}
+        console.log('message deleted')
+        res.redirect('/')
+    })
+    
+}

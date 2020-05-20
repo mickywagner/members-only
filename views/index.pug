@@ -11,13 +11,12 @@ block content
     for message in messages
       .card
         .card-header.bg-dark.text-light
-          h1 #{message.title} 
-          p Posted at: #{message.timestamp}
+          h1 #{message.title}
         .card-body 
           p #{message.text}
         .card-footer
           if currentUser
-            p Posted by: #{currentUser.isMember ? message.author.name : 'Become a member to see who posted this'}
+            p Posted by: #{currentUser.isMember ? `${message.author.name} on ${message.timestamp}` : 'Become a member to see who posted this'}
             if currentUser.isAdmin
               a(href=`/message/${message._id}/delete`) Delete Message
           else
