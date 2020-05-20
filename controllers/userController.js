@@ -56,3 +56,32 @@ exports.create_user_post= [
     }
 ]
 
+exports.update_membership_post = [
+    body('secretcode', 'You must enter the secret code to join!').trim().isLength({min: 1}).custom(value => {
+        if(value !== process.env.MEMBERSHIP_CODE) {
+            throw new Error('Nope! Wrong answer!')
+        }
+    }),
+    
+    (req, res, next) => {
+        const errors = validationResult(req)
+
+        var user = new User(
+            {
+                isMember: true,
+                _id: req.body.userid
+            }
+        )
+
+        if(!errors.isEmpty) {
+            req.render('membership', {errors: errors.array()})
+        }
+
+        User.findByIdAndUpdate(req.body.userid, user, {}, function(err, theuser){
+            if(err) {return next(err)}
+            console.log('User membership updated')
+            res.redirect('/')
+        })
+    }
+]
+

@@ -43,6 +43,6 @@ router.get('/join', (req, res) => {
   res.render('membership')
 })
 
-// router.post('/join', userController.update_membership_post)
+router.post('/join', userController.update_membership_post)
 
 module.exports = router;
