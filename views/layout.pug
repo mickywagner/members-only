@@ -7,7 +7,7 @@ html
     
   body
     nav.navbar.navbar-expand-md.bg-dark.navbar-dark
-      a.navbar-brand(href='/') Members Only
+      a.navbar-brand(href='/') The Slug Club
       btn.navbar-toggler(data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation")
         span.navbar-toggler-icon
       
@@ -16,6 +16,9 @@ html
           li
             a(href='/signup') Sign Up
           if currentUser
+            if currentUser.isMember
+              li 
+                a(href='/join') Join the Club
             li 
               a(href='/logout') Log Out
           else 

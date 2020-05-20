@@ -1,11 +1,6 @@
 const Message = require('../models/Message')
 const { body, validationResult, sanitizeBody } = require('express-validator')
 
-// create new message
-// edit message
-// view all messages
-// delete message
-
 exports.message_list = (req, res, next) => {
     Message.find({})
            .populate('author')
@@ -48,5 +43,13 @@ exports.message_create_post = [
         }
     }
 
-
 ]
+
+exports.message_delete_get = (req, res, next) => {
+    Message.findById(req.params.id)
+           .populate('author')
+           .exec(function(err, message) {
+               if(err) {return next(err)}
+               res.render('message_delete', {message: message})
+           })
+}

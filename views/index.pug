@@ -19,7 +19,7 @@ block content
           if currentUser
             p Posted by: #{currentUser.isMember ? message.author.name : 'Become a member to see who posted this'}
             if currentUser.isAdmin
-              a(href='/') Delete Message
+              a(href=`/message/${message._id}/delete`) Delete Message
           else
             p Posted by: Only members can see who posted this!
       

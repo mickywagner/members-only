@@ -7,4 +7,6 @@ router.get('/create', messageController.message_create_get)
 
 router.post('/create', messageController.message_create_post)
 
+router.get('/:id/delete', messageController.message_delete_get)
+
 module.exports = router
