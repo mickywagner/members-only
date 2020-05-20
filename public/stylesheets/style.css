@@ -9,10 +9,8 @@ body {
   background-color: var(--color1);
   color: var(--color2);
   line-height: 2em;
-  text-transform: uppercase;
+ 
 }
-
-
 
 ul.navbar-nav.mr-auto {
   text-align: center;
@@ -24,6 +22,18 @@ ul.navbar-nav.mr-auto li {
 
 .navbar-collapse#navbarNav {
   flex-grow: 0;
+}
+
+.main-content {
+  padding: 20px;
+}
+
+.card {
+  margin-top: 10px;
+}
+
+.card h1 {
+  font-size: 1.2em;
 }
 
 @media (min-width: 768px) { 

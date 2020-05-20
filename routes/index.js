@@ -6,6 +6,7 @@ const initialize = require('../passport.config')
 initialize(passport)
 
 const userController = require('../controllers/userController')
+const messageController = require('../controllers/messagesController')
 
 router.use(function(req, res, next) {
   res.locals.currentUser = req.user
@@ -13,9 +14,7 @@ router.use(function(req, res, next) {
 })
 
 /* GET home page. */
-router.get('/', (req, res, next) => {
-  res.render('index');
-});
+router.get('/', messageController.message_list)
 
 router.get('/signup', (req, res, next) => {
   res.render('signup')

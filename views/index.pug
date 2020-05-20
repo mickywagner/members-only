@@ -1,14 +1,25 @@
 extends layout
 
 block content
-  h1 Members Only Site
-  p This page will:
-  ul
-    li Display messages (only members can see author)
-    li Have a button to create new message (logged in users only)
-  
-  a(href='/signup') 
-    button.btn.btn-primary Sign Up
-  a(href='/login') 
-    button.btn.btn-primary Log In
+  .message-board
+    h1 Message Board
+    
+    
+    if currentUser
+      a(href='/message/create') Post a message
 
+    for message in messages
+      .card
+        .card-header.bg-dark.text-light
+          h1 #{message.title} 
+          p Posted at: #{message.timestamp}
+        .card-body 
+          p #{message.text}
+        .card-footer
+          if currentUser
+            p Posted by: #{currentUser.isMember ? message.author.first_name : 'Become a member to see who posted this'}
+            if currentUser.isAdmin
+              a(href='/') Delete Message
+          else
+            p Posted by: Only members can see who posted this!
+      

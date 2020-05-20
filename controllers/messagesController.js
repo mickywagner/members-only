@@ -1,18 +1,29 @@
 const Message = require('../models/Message')
-const { body, validationResult } = require('express-validator')
+const { body, validationResult, sanitizeBody } = require('express-validator')
 
 // create new message
 // edit message
 // view all messages
 // delete message
 
+exports.message_list = (req, res, next) => {
+    Message.find({})
+           .populate('author')
+           .exec(function(err, messages) {
+                if(err) { return next(err) }
+                res.render('index', {messages: messages})
+    })
+}
+
 exports.message_create_get = (req, res, next) => {
     res.render('message_form', {title: 'Create a new message'})
 }
 
 exports.message_create_post = [
-    body('title', 'Title is required').trim().isLength({min: 1}).escape(),
-    body('text', 'Message text is required').trim().isLength({min: 1}).escape(),
+    body('title', 'Title is required').trim().isLength({min: 1}),
+    body('text', 'Message text is required').trim().isLength({min: 1}),
+
+    sanitizeBody('*'),
 
     (req, res, next) => {
         const errors = validationResult(req)
