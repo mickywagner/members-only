@@ -36,6 +36,11 @@ ul.navbar-nav.mr-auto li {
   font-size: 1.2em;
 }
 
+header.user {
+  display: flex;
+  justify-content: space-between;
+}
+
 @media (min-width: 768px) { 
   .navbar-expand-md {
     justify-content: space-between !important;

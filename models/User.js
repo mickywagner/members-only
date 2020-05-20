@@ -15,10 +15,12 @@ const UserSchema = new Schema(
 )
 
 UserSchema
-    .virtual('full_name')
-    .get(() => {
-        return this.first_name + this.last_name
+    .virtual('name')
+    .get(function() {
+        var fullname = `${this.first_name} ${this.last_name}`
+        return fullname
     })
+        
 
 UserSchema
     .virtual('url')

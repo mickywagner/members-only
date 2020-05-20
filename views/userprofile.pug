@@ -1,8 +1,15 @@
 extends layout
 
 block content
-    h1 Welcome #{currentUser.first_name}
-    p #{currentUser.id}
+    header.user
+        h1 Welcome #{currentUser.first_name}!
+        p #{currentUser}
+        a(href='/logout') 
+            button.btn.btn-info Log Out
+    if !currentUser.isAdmin
+        a(href='/') 
+            button.btn.btn-primary Become a member
 
-    a(href='/message/create') Create a new message
-    a(href='/logout') Log Out
+    a(href='/message/create') 
+        button.btn.btn-primary Create a new message
+    

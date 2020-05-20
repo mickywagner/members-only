@@ -17,7 +17,7 @@ block content
           p #{message.text}
         .card-footer
           if currentUser
-            p Posted by: #{currentUser.isMember ? message.author.first_name : 'Become a member to see who posted this'}
+            p Posted by: #{currentUser.isMember ? message.author.name : 'Become a member to see who posted this'}
             if currentUser.isAdmin
               a(href='/') Delete Message
           else
