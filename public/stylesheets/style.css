@@ -1,8 +1,33 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+:root {
+  --color1: #E84545;
+  --color2: #53354A;
+  --color3: #903749;
 }
 
-a {
-  color: #00B7FF;
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: var(--color1);
+  color: var(--color2);
+  line-height: 2em;
+  text-transform: uppercase;
 }
+
+
+
+ul.navbar-nav.mr-auto {
+  text-align: center;
+}
+
+ul.navbar-nav.mr-auto li {
+  margin: 0 5px;
+}
+
+.navbar-collapse#navbarNav {
+  flex-grow: 0;
+}
+
+@media (min-width: 768px) { 
+  .navbar-expand-md {
+    justify-content: space-between !important;
+  }
+ }
