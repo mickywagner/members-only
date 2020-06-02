@@ -1,4 +1,6 @@
 const Message = require('../models/Message')
+const User = require('../models/User')
+
 const { body, validationResult, sanitizeBody } = require('express-validator')
 
 exports.message_list = (req, res, next) => {
@@ -30,16 +32,23 @@ exports.message_create_post = [
             text: req.body.text
         })
 
+
         if(!errors.isEmpty()) {
             res.render('message_form', {title: 'Create a new message', errors: errors.array(), message: message})
         }
 
         else {
-            message.save(function(err) {
+            User.findById(req.user._id).exec(function(err, theuser) {
                 if(err) {return next(err)}
-                console.log('message created!')
-                res.redirect('/')
-            })
+                message.save(function(err) {
+                    if(err) {return next(err)}
+                    theuser.messages.push(message._id)
+                    theuser.save()
+                    res.redirect('/')
+                })
+            }) 
+
+           
         }
     }
 
