@@ -45,7 +45,7 @@ exports.create_user_post= [
                     password: hashedPassword,
                     isMember: false,
                     isAdmin: false,
-                    messages: []
+
                 }
             )
 
@@ -72,18 +72,12 @@ exports.update_membership_post = [
     (req, res, next) => {
         const errors = validationResult(req)
 
-        var user = new User(
-            {
-                isMember: true,
-                _id: req.body.userid
-            }
-        )
-
         if(!errors.isEmpty) {
             req.render('membership', {errors: errors.array()})
         }
 
-        User.findByIdAndUpdate(req.body.userid, user, {}, function(err, theuser){
+
+        User.findByIdAndUpdate({_id: req.body.userid}, {isMember: true}, {}, function(err, theuser){
             if(err) {return next(err)}
             console.log('User membership updated')
             res.redirect('/')

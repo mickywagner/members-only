@@ -13,8 +13,6 @@ html
       
       div.collapse.navbar-collapse#navbarNav
         ul.navbar-nav.mr-auto
-          li
-            a(href='/signup') Sign Up
           if currentUser
             if !currentUser.isMember
               li 
@@ -24,6 +22,8 @@ html
             li 
               a(href='/logout') Log Out
           else 
+            li
+              a(href='/signup') Sign Up
             li 
               a(href='/login') Log In
     .main-content
