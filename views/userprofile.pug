@@ -11,7 +11,16 @@ block content
 
     a(href='/message/create') 
         button.btn.btn-primary Create a new message
+    br
+    br
+    h2 Your messages:
+    for message in currentUser.messages
+        .card
+            .card-header.bg-dark.text-light
+                h5 #{message.title}
+            .card-body 
+                p #{message.text}
+            .card-footer
+                p Posted at #{message.timestamp}
 
-    h2 #{currentUser.messages}
-
-    
+        
