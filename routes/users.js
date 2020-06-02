@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
+const userController = require('../controllers/userController')
+
 router.use(function(req, res, next) {
   res.locals.currentUser = req.user
   next()
@@ -11,9 +13,7 @@ router.get('/', function(req, res, next) {
   res.redirect('/users/' + req.user._id)
 });
 
-router.get('/:id', function(req, res, next) {
-  res.render('userprofile')
-})
+router.get('/:id', userController.get_user)
 
 
 module.exports = router;

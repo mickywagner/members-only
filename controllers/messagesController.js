@@ -47,8 +47,6 @@ exports.message_create_post = [
                     res.redirect('/')
                 })
             }) 
-
-           
         }
     }
 

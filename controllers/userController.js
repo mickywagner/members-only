@@ -3,9 +3,15 @@ const { body, validationResult, sanitizeBody } = require('express-validator')
 
 const bcrypt = require('bcryptjs')
 
-// update user
-// delete user
-// view all users
+exports.get_user = (req, res, next) => {
+    User.findById(req.params.id)
+        .populate('messages')
+        .exec(function(err, theuser) {
+            if(err) {return next(err)}
+            res.render('userprofile', {currentUser: theuser})
+        })
+    
+}
 
 exports.create_user_post= [
     body('firstname', 'First name is required').trim().isLength({min: 1}),
