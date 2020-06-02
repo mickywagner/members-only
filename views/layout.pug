@@ -16,9 +16,11 @@ html
           li
             a(href='/signup') Sign Up
           if currentUser
-            if currentUser.isMember
+            if !currentUser.isMember
               li 
                 a(href='/join') Join the Club
+            li
+              a(href=`/users/${currentUser._id}`) Profile
             li 
               a(href='/logout') Log Out
           else 

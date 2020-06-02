@@ -2,8 +2,9 @@ extends layout
 
 block content
     h1 Log In!
-
-    if messages
+    p Or sign up 
+        a(href='/signup') here.
+    if messages.error
         li #{messages.error}
 
 

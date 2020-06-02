@@ -2,7 +2,8 @@ extends layout
 
 block content
     h1 Sign Up!
-
+    p Already signed up? Log in 
+        a(href="/login") here.
     if errors
         ul
             for error in errors
