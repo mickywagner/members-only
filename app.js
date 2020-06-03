@@ -17,6 +17,7 @@ var messageRouter = require('./routes/message')
 
 var app = express();
 
+app.use(cors())
 // Connect database
 
 const mongoDB = process.env.DB_URL
