@@ -1,19 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
+
 :root {
   --color1: #E84545;
   --color2: #53354A;
   --color3: #903749;
 }
 
-body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: var(--color1);
-  color: var(--color2);
-  line-height: 2em;
- 
+nav.navbar {
+  background: var(--color2)
+}
+
+nav.navbar a {
+  color: var(--color1);
+}
+
+nav a img {
+  width: 70px;
+  flex: 1;
+}
+
+p {
+  margin: 0;
+}
+
+nav a p {
+  font-family: 'Sacramento', cursive;
+  color: gold;
+  font-size: 1.7em;
+  display: inline;
+  vertical-align: bottom;
 }
 
 ul.navbar-nav.mr-auto {
-  text-align: center;
+  text-align: center; 
 }
 
 ul.navbar-nav.mr-auto li {
@@ -24,21 +43,66 @@ ul.navbar-nav.mr-auto li {
   flex-grow: 0;
 }
 
+button.btn {
+  background: var(--color3);
+  color: white;
+}
+
 .main-content {
   padding: 20px;
 }
 
+.main-content h1{
+  text-align: center;
+}
+
+.main-content {
+  background: gold;
+  min-height: 100vh;
+}
+
 .card {
-  margin: 10px 0;
+  margin: 20px 0;
 }
 
 .card h1 {
-  font-size: 1.2em;
+  font-size: 1em;
+}
+
+.card p {
+  font-size: .8em;
+}
+
+.card-body {
+  padding: 10px;
+  text-align: left;
+}
+
+.card-footer {
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-footer img {
+  height: 15px;
+}
+
+.card-header:nth-child(odd) {
+  background: linear-gradient(var(--color3), var(--color2));
 }
 
 header.user {
   display: flex;
   justify-content: space-between;
+}
+
+form {
+  text-align:left;
+}
+
+form a {
+  margin: 0 10px;
 }
 
 @media (min-width: 768px) { 

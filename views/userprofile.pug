@@ -3,14 +3,13 @@ extends layout
 block content
     header.user
         h1 Welcome #{currentUser.first_name}!
-        a(href='/logout') 
-            button.btn.btn-info Log Out
-    if !currentUser.isAdmin
+    if !currentUser.isMember
         a(href='/join') 
-            button.btn.btn-primary Become a member
-
+            button.btn Become a member
     a(href='/message/create') 
-        button.btn.btn-primary Create a new message
+            button.btn Create a new message
+
+    
     br
     br
     h2 Your messages:

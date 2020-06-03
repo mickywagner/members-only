@@ -6,11 +6,11 @@ block content
     
     
     if currentUser
-      a(href='/message/create') Post a message
+      a(href='/message/create') + Post a message
 
     for message in messages
       .card
-        .card-header.bg-dark.text-light
+        .card-header.text-light
           h1 #{message.title}
         .card-body 
           p #{message.text}
@@ -18,7 +18,8 @@ block content
           if currentUser
             p Posted by: #{currentUser.isMember ? `${message.author.name} on ${message.timestamp}` : 'Become a member to see who posted this'}
             if currentUser.isAdmin
-              a(href=`/message/${message._id}/delete`) Delete Message
+              a(href=`/message/${message._id}/delete`) 
+                img(src="https://img.icons8.com/metro/26/000000/trash.png")
           else
             p Posted by: Only members can see who posted this!
-      
+    
