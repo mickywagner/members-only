@@ -6,6 +6,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose')
+var cors = require('cors')
 
 var passport = require('passport')
 var session = require('express-session')
@@ -14,6 +15,7 @@ var flash = require('express-flash')
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var messageRouter = require('./routes/message')
+
 
 var app = express();
 
