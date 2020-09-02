@@ -23,7 +23,7 @@ I made for the NodeJS course on <a href="https://www.theodinproject.com/">Odin P
   <li>Node</li>
   <li>Express</li>
   <li>MongoDB</li>
-  <li>PassportJS, BCryptJS</li>
+  <li>PassportJS, bcryptjs</li>
 </ul>
 </strong>
 
